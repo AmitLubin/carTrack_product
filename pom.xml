@@ -12,6 +12,7 @@
     <properties>
         <telemetry.version>99-SNAPSHOT</telemetry.version>
         <analytics.version>99-SNAPSHOT</analytics.version>
+        <artifactory>http://artifactory:8081/artifactory</artifactory>
     </properties>
 
     <dependencies>
@@ -26,6 +27,20 @@
             <version>${analytics.version}</version>
         </dependency>
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>libs-release</name>
+            <url>${artifactory}/libs-release-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>libs-snapshot</name>
+            <url>${artifactory}/libs-snapshot-local</url>
+        </snapshotRepository>    
+    </distributionManagement>
+
 
     <build>
         <plugins>
